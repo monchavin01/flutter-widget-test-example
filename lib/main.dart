@@ -98,9 +98,23 @@ class _PasswordValidationPageState extends State<PasswordValidationPage> {
               ),
             ],
             const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: _validatePassword,
-              child: const Text('Submit'),
+            Column(
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    _validatePassword();
+                    if (_errorMessage == null) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Successfully'),
+                          backgroundColor: Colors.green,
+                        ),
+                      );
+                    }
+                  },
+                  child: const Text('Submit'),
+                ),
+              ],
             ),
           ],
         ),
