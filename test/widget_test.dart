@@ -42,7 +42,7 @@ void main() {
     await tester.pump();
 
     // Assert
-    expect(find.text('Please enter password at least 8 characters.'),
-        findsOneWidget);
+    expect(
+        find.text('Password must be at least 8 characters.'), findsOneWidget);
   });
 }
