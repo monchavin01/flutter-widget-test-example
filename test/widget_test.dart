@@ -83,4 +83,27 @@ void main() {
     // Assert
     expect(find.text('Successfully'), findsOneWidget);
   });
+
+  testWidgets('Should clear error message when user changes password',
+      (WidgetTester tester) async {
+    // Arrange
+    await tester.pumpWidget(const MaterialApp(home: PasswordValidationPage()));
+
+    // Act
+    final passwordField = find.byType(TextField).first;
+    final submitButton = find.text('Submit');
+    await tester.enterText(passwordField, '12345678');
+    await tester.tap(submitButton);
+    await tester.pump();
+
+    // Assert
+    expect(find.text('Invalid Password'), findsOneWidget);
+
+    // Act
+    await tester.enterText(passwordField, '');
+    await tester.pump();
+
+    // Assert
+    expect(find.text('Invalid Password'), findsNothing);
+  });
 }
