@@ -1,16 +1,40 @@
-# widget_testing
+# Password Validation Demo
 
-A new Flutter project.
+A Flutter application demonstrating password validation with unit tests.
+
+## Features
+
+- Password validation with the following rules:
+  - Password cannot be empty
+  - Password must be at least 8 characters long
+  - Password and confirm password must match
+- Real-time error message clearing when user types
+- Success message shown for valid password submission
+- Comprehensive widget tests covering all validation scenarios
+
+## Widget Tests
+
+The application includes the following widget tests:
+
+1. Empty password validation
+2. Minimum length (8 characters) validation
+3. Password matching validation
+4. Success case validation
+5. Error message clearing behavior
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+1. Clone this repository
+2. Run `flutter pub get` to install dependencies
+3. Run `flutter test` to execute the widget tests
+4. Run `flutter run` to launch the application
 
-A few resources to get you started if this is your first Flutter project:
+## Project Structure
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- `lib/main.dart` - Main application code with password validation logic
+- `test/widget_test.dart` - Widget tests covering validation scenarios
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Dependencies
+
+- Flutter SDK
+- flutter_test package for widget testing
