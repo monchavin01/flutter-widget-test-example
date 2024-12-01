@@ -45,4 +45,23 @@ void main() {
     expect(
         find.text('Password must be at least 8 characters.'), findsOneWidget);
   });
+
+  testWidgets(
+      'Should display error message "Invalid Password" when user clicks submit button with password not match',
+      (WidgetTester tester) async {
+    // Arrange
+    await tester.pumpWidget(const MaterialApp(home: PasswordValidationPage()));
+
+    // Act
+    final passwordField = find.byType(TextField).first;
+    final confirmPasswordField = find.byType(TextField).last;
+    final submitButton = find.text('Submit');
+    await tester.enterText(passwordField, '12345678');
+    await tester.enterText(confirmPasswordField, '12345679');
+    await tester.tap(submitButton);
+    await tester.pump();
+
+    // Assert
+    expect(find.text('Invalid Password'), findsOneWidget);
+  });
 }
