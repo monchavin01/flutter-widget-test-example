@@ -44,7 +44,7 @@ class _PasswordValidationPageState extends State<PasswordValidationPage> {
       if (_passwordController.text.isEmpty) {
         _errorMessage = "Please enter password.";
       } else if (_passwordController.text.length < 8) {
-        _errorMessage = "Please enter password at least 8 character.";
+        _errorMessage = "Please enter password at least 8 characters.";
       } else if (_passwordController.text != _confirmPasswordController.text) {
         _errorMessage = "Invalid Password";
       } else {

@@ -27,4 +27,22 @@ void main() {
     // Assert
     expect(find.text('Please enter password.'), findsOneWidget);
   });
+
+  testWidgets(
+      'Should display error message "Password must be at least 8 characters long." when user clicks submit button with password less than 8 characters',
+      (WidgetTester tester) async {
+    // Arrange
+    await tester.pumpWidget(const MaterialApp(home: PasswordValidationPage()));
+
+    // Act
+    final passwordField = find.byType(TextField).first;
+    final submitButton = find.text('Submit');
+    await tester.enterText(passwordField, '1234567');
+    await tester.tap(submitButton);
+    await tester.pump();
+
+    // Assert
+    expect(find.text('Please enter password at least 8 characters.'),
+        findsOneWidget);
+  });
 }
